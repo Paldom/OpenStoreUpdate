@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="hu.dpal.phonegap.plugins.OpenStoreUpdate"
+      version="0.1.0">
+
+    <name>OpenStoreUpdate</name>
+    
+	<description>
+			PhoneGap plugin that navigates to an application in App Store or Play Store, eg. for an update. For iOS and Android.
+	</description>
+	<license>MIT</license>
+	<keywords>phonegap,android,ios,open,navigate,store,google,play,appstore,itunes,app,store</keywords>
+
+	<js-module src="www/pin.js" name="OpenStoreUpdate">
+	  <merges target="window.plugins.openStoreUpdate" />
+	</js-module>
+	
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OpenStoreUpdate">
+                <param name="android-package" value="hu.dpal.phonegap.plugins.OpenStoreUpdate"/>
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/OpenStoreUpdate.java" target-dir="src/hu/dpal/phonegap/plugins" />
+        
+    </platform>
+
+	<!-- ios -->
+	<platform name="ios">
+	  <config-file target="config.xml" parent="/*">
+		<feature name="OpenStoreUpdate">
+		  <param name="ios-package" value="CDVOpenStoreUpdate"/>
+		</feature>
+	  </config-file>
+
+	  <header-file src="src/ios/CDVOpenStoreUpdate.h" />
+	  <source-file src="src/ios/CDVOpenStoreUpdate.m" />
+	</platform>
+	
+</plugin>
+
